@@ -19,6 +19,6 @@ model: JobTemplate
     - name: Apply roles
       include_role:
         name: "{{ role }}"
-      loop: "{{ foreman_ansible_roles }}"
+      loop: "{{ foreman_ansible_roles2 }}"
       loop_control:
         loop_var: role
