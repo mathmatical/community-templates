@@ -1,0 +1,24 @@
+<%#
+name: Ansible Roles3 - Ansible Default3
+job_category: Ansible Playbook
+description_format: Run Ansible roles
+feature: ansible_run_host
+snippet: false
+provider_type: Ansible
+kind: job_template
+model: JobTemplate
+%>
+
+---
+- hosts: all
+  pre_tasks:
+    - name: Display all parameters known for the Foreman host
+      debug:
+        var: foreman
+  tasks:
+    - name: Apply roles
+      include_role:
+        name: "{{ role }}"
+      loop: "{{ foreman_ansible_roles3 }}"
+      loop_control:
+        loop_var: role
